@@ -1,5 +1,5 @@
 public with sharing class WidgetManagerController {
-
+ 
     public Account acct {get; set;}
     List<Widget__c> installedWidgets;
     List<Widget__c> inventoryWidgets;
