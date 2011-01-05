@@ -1,0 +1,45 @@
+<apex:page controller="ButtonDisablerController" title="Button Disabler" tabStyle="Account">
+ 
+ <script>
+function buttonClicked(myButton) {
+    myButton.disabled=true;
+    alert ('bye');
+    return true;
+}
+</script>
+ 
+ 		<apex:outputPanel id="messages">
+ 		  <apex:pageMessages />
+ 		</apex:outputPanel>
+     <apex:form > 
+        		<apex:pageblock >
+        		<apex:commandButton value="Long Search" id="jsButton" action="{!search}" status="mySearchStatus" onclick="alert('hi');return buttonClicked(this);return true;"/>
+        		
+        		</apex:pageblock>
+                 	 
+           		<apex:actionStatus id="mySearchStatus">
+				<apex:facet name="stop">	
+					<apex:pageblock >			
+					<apex:pageBlockButtons location="top">   
+						<apex:commandButton value="Long Search" id="search" action="{!search}" status="mySearchStatus" rerender="mySearchStatus,messages"/>
+						<apex:commandButton value="Long Search 2" id="search2" action="{!search}" status="mySearchStatus" rerender="mySearchStatus,messages"/>
+					</apex:pageBlockButtons>
+					</apex:pageblock>
+
+				</apex:facet>
+				<apex:facet name="start">
+				<apex:pageblock >	
+				<apex:pageBlockButtons location="top"> 
+					<apex:commandButton value="Adding Item(s)" disabled="true"/>
+					<apex:commandButton value="Adding Item(s)" disabled="true"/>
+					<apex:outputText style="font-style:italic" value="Processing....."/>
+				</apex:pageBlockButtons>
+				</apex:pageblock>
+				</apex:facet>
+				</apex:actionStatus>
+           
+    </apex:form>
+  
+ 
+ 
+</apex:page>
