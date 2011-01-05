@@ -1,5 +1,4 @@
 public with sharing class WidgetManagerController {
- 
     public Account acct {get; set;}
     List<Widget__c> installedWidgets;
     List<Widget__c> inventoryWidgets;
@@ -9,7 +8,8 @@ public with sharing class WidgetManagerController {
         //Get basic information from related account
         acct = [select Id, Name, AccountNumber, BillingCity, Type from Account where Id = :ApexPages.CurrentPage().getParameters().get('id')];
     }
-    
+
+
     //Getter Methogds   
     public List<Widget__c> getInstalledWidgets(){
         if(installedWidgets == null){
