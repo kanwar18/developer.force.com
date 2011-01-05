@@ -1,6 +1,7 @@
 "Referenced Packages"/*
 .settings/*
 salesforce.schema
+.project
 *.orig
 *.keep
 *.swp
